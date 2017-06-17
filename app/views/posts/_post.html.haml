@@ -1,0 +1,14 @@
+= div_for post do
+	= image_tag post.photo.url(:medium)
+	%h3
+		= link_to post.title, post
+	
+	%p
+		= post.body
+
+	%p 
+		= time_ago_in_words(post.created_at)
+		%small.text-muted 
+			= link_to post.user.username, post.user
+
+
