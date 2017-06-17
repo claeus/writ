@@ -1,5 +1,6 @@
 class ProfilesController < ApplicationController
 	def show
-		@profile = Profile.new
+		# Service object
+		@profile = Profile.new(current_user)
 	end
 end

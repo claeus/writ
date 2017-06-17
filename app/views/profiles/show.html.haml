@@ -4,7 +4,7 @@
 
 			%h4 Profile
 
-			= form_for @post, html: { multipart: true } do |f|
+			= form_for @profile.new_post, html: { multipart: true } do |f|
 				
 				= f.file_field :photo
 				.form-group
@@ -12,5 +12,5 @@
 					= f.text_area :body, placeholder: "Write something here", class: "form-control"
 				= f.submit 'Post', class: "btn btn-danger"
 
-	= render @posts
+	= render @profile.timeline
 
