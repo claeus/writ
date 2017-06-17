@@ -10,6 +10,9 @@ Rails.application.routes.draw do
   end
 
   resource :profile, only: [:show]
+  resource :search, only: [:show]
   resources :posts, only: [:create, :show]
   root 'pages#home', via: :get
+
+  resources :hashtags, only: [:show]
 end

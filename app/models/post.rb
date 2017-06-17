@@ -6,4 +6,5 @@ class Post < ApplicationRecord
   default_scope { order("created_at DESC") }
 
   validates :title, :body, presence: true
+
 end

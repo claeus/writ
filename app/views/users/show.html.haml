@@ -1,6 +1,7 @@
 %h3 
 	= @user.username
+- if current_user.can_follow?(@user)
+	= follow_button @user
 
-= follow_button @user
 
 = render @posts
