@@ -9,5 +9,5 @@
 				%h1.f6.f5-ns.fw6.lh-title.black.mv0= link_to user.username, user
 				%h2.f6.fw4.mt0.mb0.black-60
 				.dtc.v-mid
-					- if current_user.can_follow?(user)
+					- if user_signed_in? && current_user.can_follow?(user)
 						= follow_button user
