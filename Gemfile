@@ -21,6 +21,7 @@ gem 'record_tag_helper', '~> 1.0'
 gem 'tachyons-rails'
 gem 'normalize-rails'
 gem 'social-share-button'
+gem 'analytics-ruby', '~> 2.0.0', :require => 'segment/analytics'
 
 group :development, :test do
   gem 'byebug', platform: :mri
