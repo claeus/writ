@@ -1,18 +1,19 @@
-= form_for(:search, url: search_path, method: :get) do |f|
+%nav.dt.w-100.border-box.pa3.ph5-ns
+	.dtc.v-mid.mid-gray.link.dim.w-25
+		-# %img{:src => "http://tachyons.io/img/logo.jpg", :alt => "Site Name", class:"dib w2 h2 br-100"}/
+		
+	.dtc.v-mid.w-75.tr
+		.link.dim.dark-gray.f6.f5-ns.dib.mr3.mr4-ns
+			= form_for(:search, url: search_path, method: :get, :html => { }) do |f|
+				= f.text_field :term, placeholder: "Search claeus", class: 'input-reset ba b--black-20 pa2 mb2 db w-100'
+		- if user_signed_in?
 
-	= f.text_field :term
-	= f.submit "Search"
-	
+			.link.dim.dark-gray.f6.f5-ns.dib.mr3.mr4-ns= link_to "Sign Out", destroy_user_session_path, method: :delete 
+			.link.dim.dark-gray.f6.f5-ns.dib= link_to "Profile", profile_path
+ 
+		- else
+			.link.dim.dark-gray.f6.f5-ns.dib.mr3.mr4-ns= link_to "Join/Sign Up", new_user_registration_path
 
-- if user_signed_in?
-	= link_to "Sign Out", destroy_user_session_path, method: :delete, class: "btn btn-danger btn-sm"
-	= link_to "New Post", new_user_registration_path, class: "btn btn-danger btn-sm"
-	%span
-		Welcome 
-		= link_to current_user.username, profile_path
-- else
-
-	= link_to "Sign Up", new_user_registration_path, class: "btn btn-danger btn-sm"
-	= link_to "Sign In", new_user_session_path, class: "btn btn-danger btn-sm"
+		
 
 

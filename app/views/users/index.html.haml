@@ -1,4 +1,13 @@
-.container
+%main.mw6.center
 	- @users.each do |user|
-		%p
-			= link_to user.username, user
+
+		%article.dt.w-100.bb.b--black-05.pb2.mt2
+			.dtc.w2.w3-ns.v-mid
+				%img{:src => "http://mrmrs.github.io/photos/p/2.jpg", :alt => "", class: 'ba b--black-10 db br-100 w2 w3-ns h2 h3-ns'}/
+	      
+			.dtc.v-mid.pl3
+				%h1.f6.f5-ns.fw6.lh-title.black.mv0= link_to user.username, user
+				%h2.f6.fw4.mt0.mb0.black-60
+				.dtc.v-mid
+					- if current_user.can_follow?(user)
+						= follow_button user

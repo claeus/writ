@@ -1,16 +1,5 @@
-.container
-	.row
-		.col-sm-8.offset-sm-2
-
-			%h4 Profile
-
-			= form_for @profile.new_post, html: { multipart: true } do |f|
-				
-				= f.file_field :photo
-				.form-group
-					= f.text_field :title, placeholder: "Title goes here", class: "form-control"
-					= f.text_area :body, placeholder: "Write something here", class: "form-control"
-				= f.submit 'Post', class: "btn btn-danger btn-sm"
+%main.mw6.center
+	= render 'new_post'
 
 	= render @profile.timeline
 

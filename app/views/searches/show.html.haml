@@ -1,6 +1,4 @@
-.container
-
-	%h1 
-		= @search.term
-
+%article.mw7.center.ph3.ph5-ns.tc.br2.pv5.bg-light-grey.mb5
+	%h1.fw6.f3.f2-ns.lh-title.mt0.mb3= @search.term
+		
 	= render @search.found_posts

@@ -17,7 +17,7 @@ class Search
 	private
 
 	def posts
-		Post.where('body iLike ?', search_term)
+		Post.where('body iLike? OR title iLike?', search_term, search_term)
 	end
 
 	def search_term
