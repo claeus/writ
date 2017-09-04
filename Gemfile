@@ -24,6 +24,10 @@ gem 'analytics-ruby', '~> 2.0.0', :require => 'segment/analytics'
 gem 'trix'
 gem 'jquery-rails'
 
+
+gem 'meta-tags'
+
+
 group :development, :test do
   gem 'byebug', platform: :mri
 end

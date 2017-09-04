@@ -6,6 +6,5 @@
 		%small= time_ago_in_words(@post.created_at) + " ago"
 		%span= link_to "#{@post.user.username}", @post.user
 		%h1= social_share_button_tag(@post.title, desc: "#{@post.body.truncate(40)}")
-		
 		.lh-copy= @post.body.html_safe
 

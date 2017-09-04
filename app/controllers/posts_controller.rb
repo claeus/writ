@@ -2,6 +2,23 @@ class PostsController < ApplicationController
 	before_action :find_post, only: [:show, :edit, :destroy, :update]
 
 	def show
+		set_meta_tags title: @post.title,
+									site: 'Claeus',
+									reverse: true,
+									description: @post.body.truncate(200),
+									twitter: {
+										card: 'summary',
+										site: '@claeusgh',
+										title: @post.title,
+										description: @post.body.truncate(200)
+									},
+									og: {
+										title: "Claeus",
+										description: @post.body.truncate(200),
+										type: 'website',
+										url: post_url(@post),
+										image: @post.photo
+									}
 	end
 
 	def edit
