@@ -27,7 +27,7 @@
 			.pa4
 				%blockquote.athelas.ml0.mt0.pl4.black-90.bl.bw2.b--blue
 					%h1.fw6.f3.f2-ns.lh-title.mt0.mb3= link_to p.title, p
-					%p.f5.f4-m.f3-l.lh-copy.measure.mt0= p.body.truncate(100) + "..."
+					.f5.f4-m.f3-l.lh-copy.measure.mt0= p.body.html_safe
 
 					%cite.f6.ttu.tracked.fs-normal= link_to p.user.username, p.user
 			

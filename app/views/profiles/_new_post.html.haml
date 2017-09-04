@@ -7,7 +7,7 @@
 				= f.text_field :title, placeholder: "Title goes here", class: "input-reset ba b--black-20 pa2 mb2 db w-100"
 
 			.form-group
-				= f.text_area :body, :rows => 7, placeholder: "Write something here", class: "db border-box hover-black w-100 measure ba b--black-20 pa2 br2 mb2"
+				= f.trix_editor :body, :rows => 7, placeholder: "Write something here", class: "db border-box hover-black w-100 measure ba b--black-20 pa2 br2 mb2"
 
 			%label{:for => "photo"}
 			= f.file_field :photo

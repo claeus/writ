@@ -4,7 +4,7 @@
 		= link_to post.title, post
 	
 	%p
-		= tagged(post.body)
+		= tagged(post.body.html_safe)
 
 	%p 
 		= time_ago_in_words(post.created_at)
