@@ -13,4 +13,4 @@
 			.link.dim.dark-gray.f6.f5-ns.dib= link_to "Profile", profile_path
  
 		- else
-			.link.f6.f5-ns.fw6.dib.ba.b--black-20.bg-blue.white.ph3.ph4-n.pv2.pv3-ns.br2.grow.no-underline.lh-copy= link_to "Join/Sign Up", new_user_registration_path, method: :get
+			= link_to "Join/Sign Up", new_user_registration_path, method: :get, class: "f6 f5-ns fw6 dib ba b--black-20 bg-blue white ph3 ph4-ns pv2 pv3-ns br2 grow no-underline"
