@@ -2,28 +2,28 @@
   <h1 class="f2 mt6 mt0-ns mb1 tc">Welcome !</h1>
   <h2 class="f3 mt0 mb4 blue tc">Complete the form to get started.</h2>
 
-  <div class=" w-50 center">
+  <div class="w-90 w-50-ns center">
     <div class="pa4 bg-washed-yellow br3">
       <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-        <div class="field">
-          <%= f.label :email %><br />
-          <%= f.email_field :email, autofocus: true %>
+        <div class="mb4">
+          <%= f.label :email, class: 'lh-copy' %><br />
+          <%= f.email_field :email, autofocus: true, class: 'w-100' %>
         </div>
 
-        <div class="field">
-          <%= f.label :password %><br />
-          <%= f.password_field :password, autocomplete: "off" %>
+        <div class="mb4">
+          <%= f.label :password, class: 'lh-copy' %><br />
+          <%= f.password_field :password, autocomplete: "off", class: 'w-100' %>
         </div>
 
         <% if devise_mapping.rememberable? -%>
-          <div class="field">
-            <%= f.check_box :remember_me %>
+          <div class="mb3">
+            <%= f.check_box :remember_me, class: 'lh-copy' %>
             <%= f.label :remember_me %>
           </div>
         <% end -%>
 
-        <div class="actions">
-          <%= f.submit "Log in" %>
+        <div class="tc">
+          <%= f.submit "Log in", class: 'f6 f5-ns fw6 dib ba b--black-20 bg-blue white ph3 ph4-ns pv2 pv3-ns br2 grow no-underline mb4' %>
         </div>
       <% end %>
 
