@@ -1,7 +1,11 @@
 class PostsController < ApplicationController
+	before_action :find_post, only: [:show, :edit, :destroy, :update]
 
 	def show
-		@post =Post.find(params[:id])
+	end
+
+	def edit
+		
 	end
 
 	def create
@@ -17,6 +21,10 @@ class PostsController < ApplicationController
 
 
 	private
+
+	def find_post
+		@post =Post.find(params[:id])
+	end
 
 	def post_params
 		params.require(:post).permit(:title, :body, :photo)

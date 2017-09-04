@@ -6,13 +6,12 @@ git_source(:github) do |repo_name|
 end
 
 
-gem 'rails', '~> 5.1.1'
+gem 'rails', '~> 5.1.3'
 gem 'pg', '~> 0.18'
 gem 'puma', '~> 3.0'
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.2'
-gem 'jquery-rails'
 gem 'jbuilder', '~> 2.5'
 gem 'devise'
 gem 'haml'
@@ -23,7 +22,7 @@ gem 'normalize-rails'
 gem 'social-share-button'
 gem 'analytics-ruby', '~> 2.0.0', :require => 'segment/analytics'
 gem 'trix'
-
+gem 'jquery-rails'
 
 group :development, :test do
   gem 'byebug', platform: :mri

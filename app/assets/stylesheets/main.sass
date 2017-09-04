@@ -1,13 +1,22 @@
+body
+	font-size: 16px
+	font-weight: 500 !important
+
+
 input[type="text"],
 input[type="email"],
-input[type="password"]
+input[type="password"],
+textarea
 	padding: .7rem
 	border-radius: .25rem
 	outline: 0
 	border-width: 1px
 	border-color: #e2e2e5
 	appearance: none
+	width: 100%
 
+.mw6
+	max-width: 45rem
 
 .pt-sans
 	font-family: "PT Sans", sans-serif
@@ -34,4 +43,7 @@ $flashes: ("alert": #fff6bf,"error": #fbe3e4,"notice": #e5edf8,"success": #e6efc
 				color: shade($color, 90%)
 			
 		
+pre
+	background-color: lighten(lightgrey, 10%)
+	padding: 2rem
 	
