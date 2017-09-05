@@ -11,7 +11,9 @@ Rails.application.routes.draw do
 
   resource :profile, only: [:show]
   resource :search, only: [:show]
-  resources :posts, only: [:create, :show, :edit]
+  resources :posts, only: [:create, :show, :edit] do
+    resources :comments, only: [:create, :show, :edit]
+  end
   root 'pages#home', via: :get
 
   resources :hashtags, only: [:show]

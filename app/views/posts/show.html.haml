@@ -17,3 +17,9 @@
 				%img{:src => "#{@post.photo.url}", :alt => "#{@post.title}", class: 'w-100 f5 measure'}/
 			%p.f5.f3-ns.lh-copy.measure.georgia= tagged(@post.body)
 
+
+			%br/
+			%br/
+			= render 'comments/new'
+			#comments
+				= render @comments

@@ -2,6 +2,7 @@ class PostsController < ApplicationController
 	before_action :find_post, only: [:show, :edit, :destroy, :update]
 
 	def show
+		@comments = Comment.where(post: @post)
 		set_meta_tags title: @post.title,
 									site: 'Claeus',
 									reverse: true,

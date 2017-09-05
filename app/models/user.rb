@@ -7,7 +7,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
 
  	has_many :posts
-
+ 	has_many :comments
  	validates :username, presence: true, uniqueness: true
 
 

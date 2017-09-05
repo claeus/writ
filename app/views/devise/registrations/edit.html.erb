@@ -9,8 +9,14 @@
 
         <div class="mb2">
           <%= f.label :username, class: 'lh-copy' %>
-          <%= f.email_field :username, autofocus: true, class: 'w-100' %>
+          <%= f.text_field :username, autofocus: true, class: 'w-100' %>
         </div>
+
+        <div class="mb2">
+          <%= f.label "Add something about yourself" , class: 'lh-copy' %>
+          <%= f.text_area :about, autofocus: true, class: 'w-100' %>
+        </div>
+
         <div class="mb2">
           <%= f.label :email, class: 'lh-copy' %>
           <%= f.email_field :email, class: 'w-100' %>
@@ -43,6 +49,7 @@
           <%= f.label "Add an image to your profile", class: "lh-copy" %>
           <%= f.file_field :avatar %>
         </div>
+
 
         <div class="tc">
           <%= f.submit "Save changes", class: "f6 f5-ns fw6 dib ba b--black-20 bg-blue white ph3 ph4-ns pv2 pv3-ns br2 grow no-underline mb4" %>
