@@ -1,5 +1,8 @@
 %main.mw6.center.pa3.pa5-ns
 	= render 'new_post'
 
-	= render @profile.timeline
+	.mt3
+		= link_to "Edit your profile", edit_user_registration_path, class: 'f6 link dim br2 ph3 pv2 mb2 dib white bg-dark-blue'
+
+		= render @profile.timeline
 

@@ -1,43 +1,56 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
+<div class="content relative pt-sans">
+  <h1 class="f2 mt6 mt0-ns mb1 tc">Edit your Profile </h1>
+  <h2 class="f3 mt0 mb4 blue tc">Press save after your changes.</h2>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-  <%= devise_error_messages! %>
+  <div class="w-90 w-50-ns center">
+    <div class="pa4 bg-washed-yellow br3">
+      <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put, multipart: true }) do |f| %>
+        <%= devise_error_messages! %>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
+        <div class="mb2">
+          <%= f.label :username, class: 'lh-copy' %>
+          <%= f.email_field :username, autofocus: true, class: 'w-100' %>
+        </div>
+        <div class="mb2">
+          <%= f.label :email, class: 'lh-copy' %>
+          <%= f.email_field :email, class: 'w-100' %>
+        </div>
+
+        <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+          <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+        <% end %>
+
+        <div class="mb2">
+          <%= f.label :password, class: 'lh-copy' %> <i>(leave blank if you don't want to change it)</i>
+          <%= f.password_field :password, autocomplete: "off", class: 'w-100' %>
+          <% if @minimum_password_length %>
+            <br />
+            <em><%= @minimum_password_length %> characters minimum</em>
+          <% end %>
+        </div>
+
+        <div class="mb2">
+          <%= f.label :password_confirmation, class: 'lh-copy' %>
+          <%= f.password_field :password_confirmation, autocomplete: "off", class: 'w-100' %>
+        </div>
+
+        <div class="mb2">
+          <%= f.label :current_password, class: 'lh-copy' %> <i>(we need your current password to confirm your changes)</i><br />
+          <%= f.password_field :current_password, autocomplete: "off", class: 'w-100' %>
+        </div>
+
+        <div class="mb3">
+          <%= f.label "Add an image to your profile", class: "lh-copy" %>
+          <%= f.file_field :avatar %>
+        </div>
+
+        <div class="tc">
+          <%= f.submit "Save changes", class: "f6 f5-ns fw6 dib ba b--black-20 bg-blue white ph3 ph4-ns pv2 pv3-ns br2 grow no-underline mb4" %>
+        </div>
+      <% end %>
+      <p class="lh-copy center">Unhappy? <%= link_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: "f6 link dim br2 ph3 pv2 mb2 dib white bg-dark-blue" %></p>
+
+      <%= link_to "Back", :back %>
+    </div>
   </div>
-
-  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-    <%= f.password_field :password, autocomplete: "off" %>
-    <% if @minimum_password_length %>
-      <br />
-      <em><%= @minimum_password_length %> characters minimum</em>
-    <% end %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-    <%= f.password_field :current_password, autocomplete: "off" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Update" %>
-  </div>
-<% end %>
-
-<h3>Cancel my account</h3>
-
-<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
-
-<%= link_to "Back", :back %>
+</div>

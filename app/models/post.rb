@@ -1,6 +1,6 @@
 class Post < ApplicationRecord
-	has_attached_file :photo, styles: { medium: "300x300>", thumb: "80x80>" }, default_url: "/images/missing.jpg"
-  validates_attachment_content_type :photo, content_type: /\Aimage\/.*\z/
+	mount_uploader :image, AvatarUploader
+	
   belongs_to :user
 
   default_scope { order("created_at DESC") }

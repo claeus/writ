@@ -1,16 +1,14 @@
 
-.row
-	.col-sm-8.col-sm-offset-2
-		= form_for @profile.new_post, html: { multipart: true } do |f|
-			
-			.form-group
-				= f.text_field :title, placeholder: "Title goes here", class: "input-reset ba b--black-20 pa2 mb2 db w-100"
+= form_for @profile.new_post, html: { multipart: true } do |f|
+	.mb3
+		= f.text_field :title, placeholder: "Title goes here", class: "input-reset ba b--black-20 pa2 mb2 db w-100"
 
-			.form-group
-				= f.trix_editor :body, placeholder: "Write something here", class: "db border-box hover-black w-100 measure ba b--black-20 pa2 br2 mb2"
+	.mb3
+		= f.trix_editor :body, placeholder: "Write something here", class: "db border-box hover-black w-100 measure ba b--black-20 pa2 br2 mb2"
 
-			%label{:for => "photo"}
-			= f.file_field :photo
+	.mb3
+		%label{:for => "image"}
+		= f.file_field :image
 
-			= f.submit 'Publish', class: "f6 f5-ns fw6 dib ba b--black-20 bg-blue white ph3 ph4-ns pv2 pv3-ns br2 grow no-underline"
+	= f.submit 'Publish', class: "f6 f5-ns fw6 dib ba b--black-20 bg-blue white ph3 ph4-ns pv2 pv3-ns br2 grow no-underline"
 

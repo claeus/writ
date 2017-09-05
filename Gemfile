@@ -15,7 +15,6 @@ gem 'coffee-rails', '~> 4.2'
 gem 'jbuilder', '~> 2.5'
 gem 'devise'
 gem 'haml'
-gem 'paperclip'
 gem 'record_tag_helper', '~> 1.0'
 gem 'tachyons-rails'
 gem 'normalize-rails'
@@ -23,8 +22,9 @@ gem 'social-share-button'
 gem 'analytics-ruby', '~> 2.0.0', :require => 'segment/analytics'
 gem 'trix'
 gem 'jquery-rails'
-
-
+gem 'carrierwave', '~> 1.0'
+gem "fog-aws"
+gem 'rmagick'
 gem 'meta-tags'
 
 

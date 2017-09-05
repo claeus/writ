@@ -1,10 +1,19 @@
 = div_for @post do
-	%article.pa3.pa5-ns.ph7-l.georgia.mw9-l.center
-		- if @post.photo?
-			%img{:src => "#{@post.photo.url}", :alt => "#{@post.title}", class: 'w-100 f5 measure'}/
-		.f2.f1-m.f-headline-l.measure-narrow.lh-title.mv0= @post.title
-		%small= time_ago_in_words(@post.created_at) + " ago"
-		%span= link_to "#{@post.user.username}", @post.user
-		%h1= social_share_button_tag(@post.title, desc: "#{@post.body.truncate(40)}")
-		.lh-copy= @post.body.html_safe
+	%article
+		%header.sans-serif
+			.mw9.center.pa4.pt5-ns.ph7-l
+				%h3.f2.f1-m.f-headline-l.measure-narrow.lh-title.mv0= @post.title
+				.f6.ttu.tracked.black-80
+					%span By
+					= link_to "#{@post.user.username}", @post.user
+				%h1= social_share_button_tag(@post.title, desc: "#{@post.body.truncate(40)}")
+		
+		-# %small= time_ago_in_words(@post.created_at) + " ago"
+		-# %span
+		
+
+		.pa4.ph7-l.georgia.mw9-l
+			- if @post.image?
+				%img{:src => "#{@post.photo.url}", :alt => "#{@post.title}", class: 'w-100 f5 measure'}/
+			%p.f5.f3-ns.lh-copy.measure.georgia= tagged(@post.body)
 

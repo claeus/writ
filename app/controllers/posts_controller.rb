@@ -17,7 +17,7 @@ class PostsController < ApplicationController
 										description: @post.body.truncate(200),
 										type: 'website',
 										url: post_url(@post),
-										image: @post.photo
+										image: @post.image
 									}
 	end
 

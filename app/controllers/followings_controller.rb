@@ -4,7 +4,10 @@ class FollowingsController < ApplicationController
 
 	def create
 		current_user.follow @user 
-		redirect_to @user, notice: "Your're now following this user"
+		respond_to do |format|
+			format.html { redirect_to @user, notice: "Your're now following this user"
+}
+		end
 	end
 
 	def destroy
