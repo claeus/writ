@@ -26,6 +26,9 @@ gem 'carrierwave', '~> 1.0'
 gem "fog-aws"
 gem 'rmagick'
 gem 'meta-tags'
+gem 'friendly_id'
+gem 'sitemap_generator'
+
 
 
 group :development, :test do
