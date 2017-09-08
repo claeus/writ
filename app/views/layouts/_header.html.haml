@@ -1,7 +1,10 @@
 %nav.dt.w-100.border-box.pa3.ph5-ns
 	.dtc.v-mid.mid-gray.link.w-25
 		= link_to root_path do
-			%img{:src => "/images/missing.jpg", :alt => "Site Name", class:"dib w2 h2 br-100"}/
+			- if user_signed_in?
+				%img{:src => "#{current_user.avatar.url(:medium)}", :alt => "#{current_user.username}" , class:"dib w2 h2 br-100"}/
+			- else
+				%img{:src => "/images/missing.jpg", :alt => "Site Name", class:"dib w2 h2 br-100"}/
 		
 	.dtc.v-mid.w-75.tr
 		.link.dim.dark-gray.f6.f5-ns.dib.mr3.mr4-ns#showForm

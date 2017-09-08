@@ -9,6 +9,6 @@ class Post < ApplicationRecord
   default_scope { order("created_at DESC") }
 
   validates :title, :body, presence: true
-  has_many :comments
+  has_many :comments, dependent: :destroy
   
 end
