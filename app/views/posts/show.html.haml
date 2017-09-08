@@ -1,6 +1,6 @@
 = div_for @post do
 	%article
-		%header.sans-serif
+		%header
 			.mw9.center.pa4.pt5-ns.ph7-l
 				%h3.f2.f1-m.f-headline-l.measure-narrow.lh-title.mv0= @post.title
 				.f6.ttu.tracked.black-80
@@ -12,10 +12,10 @@
 		-# %span
 		
 
-		.pa4.ph7-l.georgia.mw9-l
+		.pa4.ph7-l.mw9-l.measure.center
 			- if @post.image?
 				%img{:src => "#{@post.image.url}", :alt => "#{@post.title}", class: 'w-100 f5 measure'}/
-			%p.f5.f3-ns.lh-copy.measure.georgia= @post.body.html_safe
+			%p.f5.f3-ns.lh-copy= @post.body.html_safe
 
 
 			%br/
