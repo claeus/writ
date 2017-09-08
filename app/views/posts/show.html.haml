@@ -15,11 +15,13 @@
 		.pa4.ph7-l.georgia.mw9-l
 			- if @post.image?
 				%img{:src => "#{@post.image.url}", :alt => "#{@post.title}", class: 'w-100 f5 measure'}/
-			%p.f5.f3-ns.lh-copy.measure.georgia= tagged(@post.body)
+			%p.f5.f3-ns.lh-copy.measure.georgia= @post.body.html_safe
 
 
 			%br/
 			%br/
+
 			= render 'comments/new'
+			%h3 Comments
 			#comments
 				= render @comments
