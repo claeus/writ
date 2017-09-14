@@ -8,6 +8,7 @@
 			%h2.f6.fw4.mt0.mb0.black-60= link_to post.user.username, post.user
 			.dtc.v-mid
 				%small= time_ago_in_words(post.created_at) + " ago"
-				%span= link_to "Delete this post", post, remote: true, method: :delete, data: { confirm: "Are your sure?"}
+				- if user_signed_in? and current_user == post.user
+					%span= link_to "Delete this post", post, remote: true, method: :delete, data: { confirm: "Are your sure?"}
 		-# - if user_signed_in? && current_user == post.user
 		-# 	= link_to "Edit", profile_path(post.user)
