@@ -38,6 +38,18 @@ class PostsController < ApplicationController
 	end
 
 
+	def update
+		respond_to do |format|
+      if @post.update(post_params)
+        format.html { redirect_to @post, notice: 'Post was successfully updated.' }
+      else
+        format.html { render :edit }
+        format.json { render json: @post.errors, status: :unprocessable_entity }
+      end
+    end
+	end
+
+
 
 	private
 
