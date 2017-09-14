@@ -8,7 +8,8 @@
 					= link_to "#{@post.user.username}", @post.user
 				%h1= social_share_button_tag(@post.title, desc: "#{@post.body.truncate(40)}")
 				- if user_signed_in? && current_user == @post.user
-					= link_to "Edit this post", edit_post_path(@post)
+					%span= link_to "Edit this post", edit_post_path(@post)
+					
 		
 		-# %small= time_ago_in_words(@post.created_at) + " ago"
 		-# %span

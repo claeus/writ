@@ -50,6 +50,14 @@ class PostsController < ApplicationController
 	end
 
 
+	def destroy
+		@post.destroy
+    respond_to do |format|
+    	format.js {}
+    end
+	end
+
+
 
 	private
 
