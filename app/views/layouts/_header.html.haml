@@ -1,19 +1,30 @@
-%nav.dt.w-100.border-box.pa3.ph5-ns
-	.dtc.v-mid.mid-gray.link.w-25
-		= link_to root_path do
-			- if user_signed_in?
-				%img{:src => "#{current_user.avatar.url(:medium)}", :alt => "#{current_user.username}" , class:"dib w2 h2 br-100"}/
-			- else
-				%img{:src => "/images/missing.jpg", :alt => "Site Name", class:"dib w2 h2 br-100"}/
-		
-	.dtc.v-mid.w-75.tr
-		.link.dim.dark-gray.f6.f5-ns.dib.mr3.mr4-ns#showForm
-			= form_for(:search, url: search_path, method: :get, :html => { }) do |f|
-				= f.text_field :term, placeholder: "Search claeus", class: 'input-reset ba b--black-20 pa2 mb2 db w-100'
-		- if user_signed_in?
+%nav
+	.container
+		#topnav
+			#logo
 
-			.link.dim.dark-gray.f6.f5-ns.dib.mr3.mr4-ns= link_to "Sign Out", destroy_user_session_path, method: :delete 
-			.link.dim.dark-gray.f6.f5-ns.dib= link_to "Profile", profile_path
- 
-		- else
-			= link_to "Join/Sign Up", new_user_registration_path, method: :get, class: "f6 f5-ns fw6 dib ba b--black-20 bg-blue white ph3 ph4-ns pv2 pv3-ns br2 grow no-underline"
+				= link_to "afromakers", root_path
+			
+			
+			#showForm
+				= form_for(:search, url: search_path, method: :get, :html => { }) do |f|
+					= f.text_field :term, placeholder: "Search claeus", class: 'form-control'
+
+			%button.js-menu-trigger.sliding-panel-button Menu
+			
+			%nav.js-menu.sliding-panel-content
+				- if user_signed_in?
+					%ul
+						%li= link_to "Sign Out", destroy_user_session_path, method: :delete 
+						%li= link_to "Profile", profile_path
+						%li
+							= form_for(:search, url: search_path, method: :get, :html => { }) do |f|
+								= f.text_field :term, placeholder: "Search claeus", class: 'form-control'
+	
+				- else
+					= link_to "Join/Sign Up", new_user_registration_path, method: :get, class: "f6 f5-ns fw6 dib ba b--black-20 bg-blue white ph3 ph4-ns pv2 pv3-ns br2 grow no-underline"
+
+
+
+			.js-menu-screen.sliding-panel-fade-screen
+

@@ -5,7 +5,6 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
-
 gem 'rails', '~> 5.1.3'
 gem 'pg', '~> 0.18'
 gem 'puma', '~> 3.0'
@@ -16,8 +15,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'devise'
 gem 'haml'
 gem 'record_tag_helper', '~> 1.0'
-gem 'tachyons-rails'
-gem 'normalize-rails'
+gem 'bootstrap'
 gem 'social-share-button'
 gem 'analytics-ruby', '~> 2.0.0', :require => 'segment/analytics'
 gem 'trix'
@@ -28,7 +26,8 @@ gem 'rmagick'
 gem 'meta-tags'
 gem 'friendly_id'
 gem 'sitemap_generator'
-
+gem 'bourbon'
+gem 'neat'
 
 
 group :development, :test do
