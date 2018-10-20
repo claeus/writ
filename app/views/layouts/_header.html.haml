@@ -17,12 +17,15 @@
 					%ul
 						%li= link_to "Sign Out", destroy_user_session_path, method: :delete 
 						%li= link_to "Profile", profile_path
+						%li= link_to "Settings", edit_user_registration_path
 						%li
 							= form_for(:search, url: search_path, method: :get, :html => { }) do |f|
 								= f.text_field :term, placeholder: "Search claeus", class: 'form-control'
 	
 				- else
-					= link_to "Join/Sign Up", new_user_registration_path, method: :get, class: "f6 f5-ns fw6 dib ba b--black-20 bg-blue white ph3 ph4-ns pv2 pv3-ns br2 grow no-underline"
+					%ul
+
+						%li= link_to "Join/Sign Up", new_user_registration_path, method: :get
 
 
 

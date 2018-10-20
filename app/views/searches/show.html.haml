@@ -1,4 +1,11 @@
-%article.mw7.center.ph3.ph5-ns.br2.pv5.bg-light-grey.mb5
-	%h1.fw6.f3.f2-ns.lh-title.mt0.mb3= "Searched for '#{@search.term}' "
-		
-	= render @search.found_posts
+%article
+	%h1.my-5= "Searched for '#{@search.term}' "
+	
+	%section
+		.row
+			.col-md-7
+				= render @search.found_posts
+
+			.col-md-5
+				%aside
+					%h2 Trending

@@ -1,14 +1,8 @@
 
-
-.container
-	.row
-		- @posts.each do |p|
-			.col-sm-4
-				%article.comment
-					.comment-image
-						%img{:src => "#{p.user.avatar.url(:medium)}", :alt => "#{p.user.username}"}/
-
-					.comment-content
-						%h1= link_to p.title, post_path(id: p.id)
-						%p.comment-detail= link_to p.user.username, p.user
+.row.my-5
+	.col-md-7
+		= render @posts
+		
+	.col-md-5
+		%h2.text-left Trending
 
