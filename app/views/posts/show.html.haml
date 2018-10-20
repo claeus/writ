@@ -1,14 +1,15 @@
+
+
+
 = div_for @post do
 	%article
-		%header
-			.mw9.center.pa4.pt5-ns.ph7-l
-				%h3.f2.f1-m.f-headline-l.measure-narrow.lh-title.mv0= @post.title
-				.f6.ttu.tracked.black-80
-					%span By
-					= link_to "#{@post.user.username}", @post.user
-				%h1= social_share_button_tag(@post.title, desc: "#{@post.body.truncate(40)}")
-				- if user_signed_in? && current_user == @post.user
-					%span= link_to "Edit this post", edit_post_path(@post)
+		%h2.my-5= @post.title
+		%span 
+			By
+			= link_to "#{@post.user.username}", @post.user
+		= social_share_button_tag(@post.title, desc: "#{@post.body.truncate(40)}")
+		- if user_signed_in? && current_user == @post.user
+			%span= link_to "Edit this post", edit_post_path(@post)
 					
 		
 		-# %small= time_ago_in_words(@post.created_at) + " ago"
@@ -19,12 +20,11 @@
 			- if @post.image?
 				%img{:src => "#{@post.image.url}", :alt => "#{@post.title}", class: 'w-100 f5 measure'}/
 			%p.f5.f3-ns.lh-copy= @post.body.html_safe
+%h3.my-4 Comments
+#comments
+	= render @comments
 
 
-			%br/
-			%br/
-
-			= render 'comments/new'
-			%h3 Comments
-			#comments
-				= render @comments
+= render 'comments/new'
+	
+	

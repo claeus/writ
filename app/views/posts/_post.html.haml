@@ -1,14 +1,9 @@
 = div_for post do
-	%article.dt.w-100.bb.b--black-05.pb2.mt2
-		.dtc.w2.w3-ns.v-mid
-			%img{:src => "#{post.user.avatar.url(:medium)}", :alt => "", class: 'ba b--black-10 db br-100 w2 w3-ns h2 h3-ns'}/
-	    
-		.dtc.v-mid.pl3
-			%h1.f6.f5-ns.fw6.lh-title.black.mv0= link_to post.title, post
-			%h2.f6.fw4.mt0.mb0.black-60= link_to post.user.username, post.user
-			.dtc.v-mid
-				%small= time_ago_in_words(post.created_at) + " ago"
-				- if user_signed_in? and current_user == post.user
-					%span= link_to "Delete this post", post, remote: true, method: :delete, data: { confirm: "Are your sure?"}
-		-# - if user_signed_in? && current_user == post.user
-		-# 	= link_to "Edit", profile_path(post.user)
+
+	%article.comment
+		.comment-image
+			%img{:src => "#{post.user.avatar.url(:medium)}", :alt => "#{post.user.username}"}/
+
+		.comment-content
+			%h1= link_to post.title, post_path(id: post.id)
+			%p.comment-detail= link_to post.user.username, post.user
