@@ -1,63 +1,68 @@
-<div class="content relative pt-sans">
-  <h1 class="f2 mt6 mt0-ns mb1 tc">Edit your Profile </h1>
-  <h2 class="f3 mt0 mb4 blue tc">Press save after your changes.</h2>
-
-  <div class="w-90 w-50-ns center">
-    <div class="pa4 bg-washed-yellow br3">
-      <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put, multipart: true }) do |f| %>
-        <%= devise_error_messages! %>
-
-        <div class="mb2">
-          <%= f.label :username, class: 'lh-copy' %>
-          <%= f.text_field :username, autofocus: true, class: 'w-100' %>
+<div class='edit-user'>
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put, multipart: true, class: 'card' }) do |f| %>
+  <%= devise_error_messages! %>
+  <div class="card-body">
+    <h3 class="card-title my-4">Edit Profile</h3>
+    <div class="row">
+      <div class="col-md-5">
+        <div class="form-group">
+          <%= f.label "Add an image to your profile", class: "form-label" %>
+          <%= f.file_field :avatar %>
         </div>
-
-        <div class="mb2">
-          <%= f.label "Add something about yourself" , class: 'lh-copy' %>
-          <%= f.text_area :about, autofocus: true, class: 'w-100' %>
+      </div>
+      <div class="col-sm-6 col-md-3">
+        <div class="form-group">
+          <%= f.label :username, class: 'form-label' %>
+          <%= f.text_field :username, autofocus: true, class: 'form-control' %>
         </div>
-
-        <div class="mb2">
-          <%= f.label :email, class: 'lh-copy' %>
-          <%= f.email_field :email, class: 'w-100' %>
+      </div>
+      <div class="col-sm-6 col-md-4">
+        <div class="form-group">
+          <%= f.label :email, class: 'form-label' %>
+          <%= f.email_field :email, class: 'form-control' %>
         </div>
-
-        <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-          <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-        <% end %>
-
-        <div class="mb2">
-          <%= f.label :password, class: 'lh-copy' %> <i>(leave blank if you don't want to change it)</i>
-          <%= f.password_field :password, autocomplete: "off", class: 'w-100' %>
+      </div>
+      <div class="col-sm-6 col-md-6">
+        <div class="form-group">
+          <%= f.label :password, class: 'form-label' %> <i>(leave blank if you don't want to change it)</i>
+          <%= f.password_field :password, autocomplete: "off", class: 'form-control' %>
           <% if @minimum_password_length %>
             <br />
             <em><%= @minimum_password_length %> characters minimum</em>
           <% end %>
         </div>
-
-        <div class="mb2">
+      </div>
+      <div class="col-sm-6 col-md-6">
+        <div class="form-group">
           <%= f.label :password_confirmation, class: 'lh-copy' %>
-          <%= f.password_field :password_confirmation, autocomplete: "off", class: 'w-100' %>
+          <%= f.password_field :password_confirmation, autocomplete: "off", class: 'form-control' %>
         </div>
-
-        <div class="mb2">
+      </div>
+      <div class="col-md-6">
+        <div class="form-group">
           <%= f.label :current_password, class: 'lh-copy' %> <i>(we need your current password to confirm your changes)</i><br />
-          <%= f.password_field :current_password, autocomplete: "off", class: 'w-100' %>
+          <%= f.password_field :current_password, autocomplete: "off", class: 'form-control' %>
         </div>
+      </div>
 
-        <div class="mb3">
-          <%= f.label "Add an image to your profile", class: "lh-copy" %>
-          <%= f.file_field :avatar %>
+      <div class="col-sm-6 col-md-6">
+        <div class="form-group mb-0">
+          <label class="form-label">About Me</label>
+          <%= f.text_area :about, rows: 10, class: 'form-control' %>
         </div>
+      </div>
 
-
-        <div class="tc">
-          <%= f.submit "Save changes", class: "f6 f5-ns fw6 dib ba b--black-20 bg-blue white ph3 ph4-ns pv2 pv3-ns br2 grow no-underline mb4" %>
-        </div>
+      <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+        <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
       <% end %>
-      <p class="lh-copy center">Unhappy? <%= link_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: "f6 link dim br2 ph3 pv2 mb2 dib white bg-dark-blue" %></p>
-
-      <%= link_to "Back", :back %>
     </div>
   </div>
+  <div class="card-footer text-right">
+    <%= f.submit "Update Profile", class: "" %>
+  </div>
+
+<% end %>
+  <p class="lh-copy center">Unhappy? <%= link_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: "f6 link dim br2 ph3 pv2 mb2 dib white bg-dark-blue" %></p>
+
+  <%= link_to "Back", :back %>
 </div>

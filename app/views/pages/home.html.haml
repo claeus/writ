@@ -1,42 +1,14 @@
-%article.mw7.center.ph3.ph5-ns.br2.pv5.bg-light-grey.mb5
-	- if user_signed_in?
-		%section.mw5.mw7-ns.center.pa3.ph5-ns
-			%h1.fw6.f3.f2-ns.lh-title.mt0.mb3.tc Freshly pressed
-			- @posts.each do |p|
-				%article.dt.w-100.bb.b--black-05.pb2.mt2.center
-					.dtc.w2.w3-ns.v-mid
-						%img{:src => "#{p.user.avatar.url(:medium)}", :alt => "", class: 'ba b--black-10 db br-100 w2 w3-ns h2 h3-ns'}/
-			      
-					.dtc.v-mid.pl3
-						%h1.f6.f5-ns.fw6.lh-title.black.mv0= link_to p.title, post_path(id: p.id)
-						%h2.f6.fw4.mt0.mb0.black-60= link_to p.user.username, p.user
-						.dtc.v-mid
-							%small= time_ago_in_words(p.created_at) + " ago"
-			
-	- else
-		%h1.fw6.f3.f2-ns.lh-title.mt0.mb3 Read, Write, Read later.
 
-		%h2.fw2.f4.lh-copy.mt0.mb3
-			Connect with your friends, readers and other writers by writing and reading stories. Read stories from topics that interest you.
 
-		%p.fw1.f5.mt0.mb3 Sign up to get started.
-			
-		= link_to "Sign up", new_user_registration_path, class: 'f6 f5-ns fw6 dib ba b--black-20 bg-blue white ph3 ph4-ns pv2 pv3-ns br2 grow no-underline'
-		-# = link_to "Learn More", root_path, class: "f6 br-pill dark-green no-underline ba grow pv2 ph3 dib
-		%br/
-		%br/
-		%br/
-		%section.mw5.mw7-ns.center.pa3.ph5-ns
-			%h1.fw6.f3.f2-ns.lh-title.mt0.mb3 Freshly published
-			- @posts.each do |p|
-				%article.dt.w-100.bb.b--black-05.pb2.mt2.center
-					.dtc.w2.w3-ns.v-mid
-						%img{:src => "#{p.user.avatar.url(:medium)}", :alt => "", class: 'ba b--black-10 db br-100 w2 w3-ns h2 h3-ns'}/
-			      
-					.dtc.v-mid.pl3
-						%h1.f6.f5-ns.fw6.lh-title.black.mv0= link_to p.title, p
-						%h2.f6.fw4.mt0.mb0.black-60= link_to p.user.username, p.user
-						.dtc.v-mid
-							%small= time_ago_in_words(p.created_at) + " ago"
+.container
+	.row
+		- @posts.each do |p|
+			.col-sm-4
+				%article.comment
+					.comment-image
+						%img{:src => "#{p.user.avatar.url(:medium)}", :alt => "#{p.user.username}"}/
 
-			
+					.comment-content
+						%h1= link_to p.title, post_path(id: p.id)
+						%p.comment-detail= link_to p.user.username, p.user
+
