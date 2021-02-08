@@ -20,7 +20,7 @@ gem 'social-share-button'
 gem 'analytics-ruby', '~> 2.0.0', :require => 'segment/analytics'
 gem 'trix'
 gem 'jquery-rails'
-gem 'carrierwave', '~> 1.0'
+gem 'carrierwave', '~> 1.3'
 gem "fog-aws"
 gem 'rmagick'
 gem 'meta-tags'
